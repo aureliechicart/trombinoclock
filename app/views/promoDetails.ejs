@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<h1>Détails de la promo</h1>
+
+<h2>Nom : <%= promo.name %></h2>
+
+<a href="<%= promo.github_organization %>" target="_blank">
+    Lien vers l'orga GitHub
+</a>
+
+<h3>Liste des étudiants</h3>
+<ul>
+    <% for (const student of studentsOfPromo) { %>
+        <li>
+            <%= student.first_name + ' ' + student.last_name %>
+        </li>
+    <% } %>
+</ul>
+
+<%- include('partials/footer') %>

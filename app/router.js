@@ -12,6 +12,7 @@ const router = express.Router();
 // plugging our routes
 router.get('/', mainController.homePage );
 router.get('/promos', promoController.promoList );
+router.get('/promo/:id', promoController.promoDetails );
 
 // the 404 route
 router.use( errorController.notFound );
