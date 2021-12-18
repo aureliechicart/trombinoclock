@@ -1,0 +1,13 @@
+body {
+  background-color: #ccc;
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+#logo {
+  max-height: 100px;
+}
