@@ -29,11 +29,7 @@ It is a tool to facilitate contact between students from the same school. It lis
 
 ## Install
 
-Clone the repository locally:
-
-```bash
-git clone <url de ce repo>
-```
+Clone this repository.
 
 In the terminal, at the root of the folder project, run the following command to install the dependencies :
 
