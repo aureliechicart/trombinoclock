@@ -1,5 +1,25 @@
 # Trombinoclock
 
+## Introduction
+
+This project has been developed for learning purposes.
+It is a tool to facilitate contact between students from the same school. It lists the promotions and the students who belong to those promotions.
+
+## Learning goals
+
+- Creating [wireframes](https://github.com/aureliechicart/trombinoclock/tree/master/wireframes) after studying client's needs and establishing user stories
+- developing a basic architecture with router, controllers and EJS views
+
+## Technologies
+
+* Node v16.14.0
+* Express v4.17.2
+* postgreSQL 12 database server
+* pg (PostgreSQL client) v8.7.1
+* morgan v 1.10.0
+* ejs v3.1.6
+* dotenv v10.0.0
+
 ## Install
 
 __Clone__ the repository locally
