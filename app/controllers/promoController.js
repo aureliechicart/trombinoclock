@@ -25,12 +25,15 @@ const promoController = {
 
   promoDetails: (req, res, next) => {
     // getting the id from the request's params
+   
     const targetId = parseInt(req.params.id);
+    console.log(targetId);
 
     // Getting the promo which matches the target id
     // Using paramerterized query to avoid string concatenating parameters directly (tehrefore preventing SQL injections)
     dataMapper.getPromoById(targetId, (error, data) => {
       if (error) {
+        console.log(error);
         // If the promo is not found, we return an 500-status error
         res.status(500).send(error);
       } else {

@@ -11,6 +11,20 @@ const app = express();
 // plugging the logger in "dev" mode
 app.use( morgan('dev') );
 
+// adding express-session to add a 'session' parameter to all requests
+const session = require('express-session');
+app.use( session({
+    secret: "moi j'aime bien les sessions comme ça...",
+    saveUninitialized: true,
+    resave: true,
+    cookie: {
+        maxAge: 1000*60*60 //  => one hour
+    }
+}));
+
+// adding a middleware to process POST info
+app.use( express.urlencoded({extended: true}) );
+
 // creating a variable to store the port number
 const PORT = 3210;
 

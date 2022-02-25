@@ -12,7 +12,7 @@ const dataMapper = {
     },
 
     getStudentsByPromoId: (promoId, callback) => {
-        const sql = `SELECT * FROM "student" WHERE "promo_id" = $1`;
+        const sql = `SELECT * FROM "student" WHERE "promo_id" = $1 ORDER BY "last_name"`;
         client.query(sql, [promoId], callback);
     },
 
@@ -25,6 +25,19 @@ const dataMapper = {
         const sql = `SELECT * FROM "student" WHERE "promo_id" = $1`;
         client.query(sql, [promoId], callback);
     },
+    insertNewStudent: (studentInfo, callback) => {
+        console.log('dataMapper: ', studentInfo);
+        const sql = `INSERT INTO "student" 
+        ("first_name", "last_name", "github_username", "profile_picture_url", "promo_id") VALUES
+        (
+            '${studentInfo.first_name}',
+            '${studentInfo.last_name}',
+            '${studentInfo.github_username}',
+            'http://github.com/${studentInfo.github_username}.png',
+            ${studentInfo.promo_id}
+        ) RETURNING *`;
+        client.query( sql, callback );
+    }
 
 
 };
