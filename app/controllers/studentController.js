@@ -1,4 +1,4 @@
-const client = require('../dbClient');
+const dataMapper = require('../dataMapper');
 
 const studentController = {
 
@@ -6,7 +6,7 @@ const studentController = {
 
         const targetId = req.params.id;
 
-        client.query(`SELECT * FROM "student" WHERE "id"= $1`, [targetId], (error, result) => {
+        dataMapper.getStudentById(targetId , (error, result) => {
             if (error) {
               console.log(error);
                 res.status(500).send(error);
