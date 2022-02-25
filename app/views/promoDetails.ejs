@@ -12,7 +12,9 @@
 <ul>
     <% for (const student of studentsOfPromo) { %>
         <li>
-            <%= student.first_name + ' ' + student.last_name %>
+            <a href="/student/<%= student.id %>">
+                <%= student.first_name + ' ' + student.last_name %>
+            </a>
         </li>
     <% } %>
 </ul>

@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<h1>Détails de l'étudiant</h1>
+
+<h2>Nom : <%= student.last_name %></h2>
+<h2>Prénom : <%= student.first_name %></h2>
+
+<a href="http://github.com/<%= student.github_username %>" target="_blank">
+    Lien vers le profil Github
+</a>
+
+<img src="<%= student.profile_picture_url %>" alt="avatar de l'étudiant">
+
+
+<%- include('partials/footer') %>

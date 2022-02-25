@@ -5,6 +5,7 @@ const express = require('express');
 const mainController = require('./controllers/mainController');
 const promoController = require('./controllers/promoController');
 const errorController = require('./controllers/errorController');
+const studentController = require('./controllers/studentController');
 
 // instantiating a router
 const router = express.Router();
@@ -13,6 +14,7 @@ const router = express.Router();
 router.get('/', mainController.homePage );
 router.get('/promos', promoController.promoList );
 router.get('/promo/:id', promoController.promoDetails );
+router.get('/student/:id', studentController.studentDetails );
 
 // the 404 route
 router.use( errorController.notFound );
