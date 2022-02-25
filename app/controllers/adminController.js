@@ -18,7 +18,6 @@ const adminController = {
   },
 
   postAddStudentForm: (req, res, next) => {
-    console.log('adminController : ', req.body);
     dataMapper.insertNewStudent(req.body, (error, data) => {
       if (error) {
         console.error(error);

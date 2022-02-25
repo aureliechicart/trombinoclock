@@ -8,6 +8,7 @@ const errorController = require('./controllers/errorController');
 const studentController = require('./controllers/studentController');
 const adminController = require('./controllers/adminController');
 const authController = require('./controllers/authController');
+const searchController = require('./controllers/searchController');
 
 // instantiating a router
 const router = express.Router();
@@ -23,6 +24,8 @@ router.post('/admin/addStudent', adminController.postAddStudentForm );
 // setting up mock authentication
 router.get('/login', authController.getLoginForm );
 router.post('/login', authController.postLoginForm );
+
+router.get('/search', searchController.searchAllByName );
 
 // the 404 route
 router.use( errorController.notFound );

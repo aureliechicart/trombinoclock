@@ -8,14 +8,9 @@ const studentController = {
 
         dataMapper.getStudentById(targetId , (error, result) => {
             if (error) {
-              console.log(error);
                 res.status(500).send(error);
             } else {
-                console.log(result);
-
                 const student = result.rows[0];
-
-                console.log("STUDENT : ",student);
 
                 if (!student) {
                     next();

@@ -11,3 +11,7 @@ header {
 #logo {
   max-height: 100px;
 }
+
+input[type="submit"] {
+  background-color: rgb(124, 155, 238);
+}

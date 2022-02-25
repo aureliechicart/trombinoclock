@@ -1,0 +1,18 @@
+<%- include('partials/header') %>
+
+<h1>Résultat de la recherche</h1>
+
+<ul>
+    <% for (const result of results) { %> 
+        <li>
+            <a href="/<%= result.type %>/<%= result.id%>">
+                <%= result.name %>
+            </a>
+        </li>
+    <% } %> 
+
+</ul>
+
+
+
+<%- include('partials/footer') %>
