@@ -3,22 +3,28 @@ const client = require('./dbClient');
 const dataMapper = {
     getAllPromos: (callback) => {
         const sql = 'SELECT * FROM "promo" ';
-        client.query( sql, callback );
+        client.query(sql, callback);
     },
 
-    getPromoById: () => {
-
+    getPromoById: (promoId, callback) => {
+        const sql = `SELECT * FROM "promo" WHERE "id"= $1`;
+        client.query(sql, [promoId], callback);
     },
 
-    getStudentsByPromoId: () => {
-
+    getStudentsByPromoId: (promoId, callback) => {
+        const sql = `SELECT * FROM "student" WHERE "promo_id" = $1`;
+        client.query(sql, [promoId], callback);
     },
 
     getStudentById: (studentId, callback) => {
 
         const sql = `SELECT * FROM "student" WHERE "id"= $1`;
-        client.query(sql, [studentId], callback );
-    }
+        client.query(sql, [studentId], callback);
+    },
+    getStudentsByPromoId: (promoId, callback) => {
+        const sql = `SELECT * FROM "student" WHERE "promo_id" = $1`;
+        client.query(sql, [promoId], callback);
+    },
 
 
 };

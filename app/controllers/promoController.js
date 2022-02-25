@@ -2,7 +2,6 @@ require('dotenv').config();
 
 // we require the dataMapper
 const dataMapper = require('../dataMapper');
-const client = require('../dbClient');
 
 const promoController = {
 
@@ -30,7 +29,7 @@ const promoController = {
 
     // Getting the promo which matches the target id
     // Using paramerterized query to avoid string concatenating parameters directly (tehrefore preventing SQL injections)
-    client.query('SELECT * FROM "promo" WHERE "id" = $1', [targetId], (error, data) => {
+    dataMapper.getPromoById(targetId, (error, data) => {
       if (error) {
         // If the promo is not found, we return an 500-status error
         res.status(500).send(error);
@@ -45,7 +44,7 @@ const promoController = {
           next();
         } else {
           // Then we send another query to the database to get all students who belong to this promo
-          client.query('SELECT * FROM "student" WHERE "promo_id" = $1', [targetId], (error, data) => {
+          dataMapper.getStudentsByPromoId(targetId, (error, data) => {
             if (error) {
               // If no match is found, we return a 500-status error
               res.status(500).send(error);
